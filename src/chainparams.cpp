@@ -48,7 +48,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "2017/08/09 12:00:00 CuteCoin";
+    const char* pszTimestamp = "2017/8/15 16:00:00 CuteCoin";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -86,9 +86,9 @@ public:
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2; // nPowTargetTimespan / nPowTargetSpacing
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
+//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
+  //      consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
+    //    consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
 
         // Deployment of BIP68, BIP112, and BIP113.
 /*
@@ -119,10 +119,10 @@ public:
         nDefaultPort = 2333;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1502251200, 2620211317, 0x1d00ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1502784000, 1036830737, 0x1d00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000000ef18dc2f553489e0bd225597f05b7c646b5dde4c5719abdb360b0cee"));
-        assert(genesis.hashMerkleRoot == uint256S("0x64955e4076671e91a82d3e024e036d86e867c5979b5efc195fb8a1119f63654b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000000106b1a2671a93e79d7a29eb3af293b5b0807a66afef0c1d46932c2d7"));
+        assert(genesis.hashMerkleRoot == uint256S("0x2aa32ccfce51778ecf229f25188ec393230c940fa35fb8b39eacf780055bd917"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         // vSeeds.emplace_back("seed.bitcoin.sipa.be", true); // Pieter Wuille, only supports x1, x5, x9, and xd
